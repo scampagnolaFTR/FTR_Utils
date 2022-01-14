@@ -110,27 +110,7 @@ namespace FTR_Utils
                 return e.ToString();
             }
         }
-        public void InitColumns()
-        {
-            string[] names = new string[]
-            {   "UID",
-                "RoomName",
-                "Location",
-                "Group",
-                "Phone01",
-                "Phone02",
-                "Processor_IP",
-                "DSP_IP",
-                "Cam01_IP",
-                "Cam02_IP",
-                "Cam01_URL",
-                "Cam02_URL",
-                "Cam01_Presets",
-                "Cam02_Presets"
-            };
-            foreach (var v in names)
-                AddColumnName(v);
-        }
+
         public string SetTableNode(int i, int j, string s)
         {
             if (!bFileLoaded)
@@ -150,12 +130,7 @@ namespace FTR_Utils
                 return e.ToString();
             }
         }
-        public void AddColumnName(string s)
-        {
-            columnNames.Add(s.Trim().ToLower(), columnNames.Count + 1);
-            if (columnNames.Count > numOfCols)
-                numOfCols = columnNames.Count;
-        }
+
 
         ///////////////////////////////////////////////////////////////////
         ///Get / Print
@@ -254,8 +229,6 @@ namespace FTR_Utils
 
         public string VC_LoadTable(string s)
         {
-            InitColumns();
-
             if (s.Trim().Length == 0)
                 VC.Send(LoadFile());
             else
